@@ -36,7 +36,8 @@ def raiz_cubica(n1):
 
 def calculadora():
 
-    equacao = input('Digite o tipo de equação desejada, lembre-se de colocar os sinais (-, +, /, *, **, raiz_q, raiz_c, baskara): ')
+    equacao = input('''Digite o tipo de equação desejada, lembre-se de colocar os sinais: 
+                    -, +, /, *, **, raiz_q, raiz_c, baskara, tabuada ''')
 
     if equacao == 'baskara':
 
@@ -71,6 +72,14 @@ def calculadora():
         print(f'(-{n2} + {resul_delta:.2f}) ÷ {resul_div}')
         resultado_x2 = divisao(x2, resul_div)
         print(f'Resultado de x2: {formatar_resultado(resultado_x2)}\n')
+    
+    elif equacao == 'tabuada':
+        limite = int(input('Até que número vai sua tabuada? '))
+        numero_base = float(input('Qual o número que irá ser feito a tabuada?'))
+
+        for i in range(limite + 1):
+            resultado = multiplicacao(numero_base, i)
+            print(f'{numero_base} x {limite} = {resultado}')
 
     elif equacao in ['+', '-', '/', '*', '**']:
         n1 = float(input('Digite o primeiro número: '))
@@ -113,7 +122,5 @@ def calculadora():
 
     else:
         print('Digite um número válido!')
-
-
 
 calculadora()
